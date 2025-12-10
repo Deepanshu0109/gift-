@@ -1,0 +1,332 @@
+:root{
+  --bg:#06060a;
+  --card:#0f0a1a;
+  --deep-purple:#3b0d5a;
+  --neon-pink:#ff3fa4;
+  --muted:#9b90a8;
+  --text:#ffffff;
+  --radius:14px;
+  --gap:14px;
+  --max-width:420px;
+}
+
+/* basic reset */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, #070017 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  justify-content:center;
+  padding:20px 12px;
+}
+
+/* center, mobile-first container */
+.app-root, .main-area{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Top bar */
+.top-bar{
+  padding:12px 6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:linear-gradient(180deg, rgba(6,6,10,0.6), rgba(6,6,10,0.0));
+  backdrop-filter: blur(6px);
+}
+.app-title{
+  font-size:18px;
+  letter-spacing:0.3px;
+  color:var(--neon-pink);
+  font-weight:700;
+}
+
+/* Gatekeeper */
+.gate-screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:36px;
+  padding-bottom:36px;
+}
+
+.gate-card{
+  width:100%;
+  background: linear-gradient(135deg, rgba(59,13,90,0.18), rgba(7,5,12,0.45));
+  border-radius:18px;
+  padding:20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.gate-title{
+  margin:0 0 6px 0;
+  font-size:20px;
+  color:var(--neon-pink);
+}
+.gate-sub{
+  margin:0 0 16px 0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* input & buttons */
+.gate-input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
+  color:var(--text);
+  font-size:16px;
+  outline:none;
+  margin-bottom:14px;
+}
+
+.gate-input::placeholder{ color:rgba(255,255,255,0.35) }
+
+.btn-primary{
+  width:100%;
+  display:inline-block;
+  background:linear-gradient(90deg, var(--neon-pink), #ff74bb);
+  color:#0b0212;
+  font-weight:700;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  touch-action:manipulation;
+  box-shadow: 0 8px 24px rgba(255,63,164,0.16);
+}
+
+/* small primary */
+.btn-primary-sm{
+  background:linear-gradient(90deg,var(--neon-pink), #ff74bb);
+  border:none;
+  color:#0b0212;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* ghost button */
+.btn-ghost{
+  background:transparent;
+  color:var(--neon-pink);
+  border:none;
+  font-weight:600;
+}
+
+/* sections */
+.section-title{
+  font-size:16px;
+  margin:18px 0 8px 0;
+  color:var(--neon-pink);
+  font-weight:700;
+}
+
+/* timeline / memory cards */
+.timeline-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding-bottom:12px;
+}
+
+.memory-card{
+  width:100%;
+  background: linear-gradient(180deg, rgba(15,10,26,0.6), rgba(10,6,18,0.35));
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Memory image container — non-cropping version */
+.memory-img-wrap{
+  width:100%;
+  height:auto;            /* let image decide height */
+  max-height:420px;       /* prevents huge phone pics from blowing up layout */
+  overflow:hidden;
+  display:block;
+  background: linear-gradient(180deg, rgba(10,6,18,0.6), rgba(7,5,12,0.4));
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.memory-img{
+  width:100%;
+  height:auto;           /* keep aspect ratio */
+  object-fit: contain;   /* show full image, no cropping */
+  display:block;
+  max-height:420px;
+}
+
+
+/* memory text */
+.memory-text{
+  padding:12px;
+  font-size:15px;
+  color: #efe6f3;
+}
+
+/* why section */
+.why-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.reason-card{
+  margin-top:6px;
+  padding:14px;
+  border-radius:12px;
+  background: linear-gradient(90deg, rgba(59,13,90,0.22), rgba(10,8,20,0.45));
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.reason-text{
+  font-size:15px;
+  line-height:1.4;
+  color:#fff;
+}
+.reason-footer{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:10px;
+}
+
+/* coupons grid */
+.coupons-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  padding-bottom:40px;
+}
+
+.coupon-card{
+  padding:14px;
+  border-radius:12px;
+  background: linear-gradient(180deg, rgba(20,10,30,0.5), rgba(10,5,18,0.4));
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.coupon-info{ display:flex; align-items:center; justify-content:space-between; width:100% }
+.coupon-title{ font-size:16px; font-weight:700; color:#fff }
+.coupon-status{ color:var(--neon-pink); font-weight:700; font-size:13px }
+
+.redeemed{ opacity:0.6; filter:grayscale(0.08) }
+
+/* small utilities */
+.muted{ color:var(--muted); font-size:14px; }
+.loader{ color:var(--muted); padding:12px; }
+
+/* responsive tweaks */
+@media (min-width:420px){
+  body{ padding:28px 0; }
+  .memory-img-wrap{ height:220px; }
+}
+
+/* --- Modal + heart-burst styles for WhyILoveYou --- */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(3,2,8,0.65);
+  backdrop-filter: blur(6px) saturate(1.05);
+  z-index:80;
+  padding:20px;
+}
+
+.reason-modal{
+  width:100%;
+  max-width:360px;
+  border-radius:16px;
+  padding:14px;
+  background: linear-gradient(180deg, rgba(20,8,30,0.9), rgba(10,5,18,0.75));
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 60px rgba(5,2,10,0.6);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.modal-heart-wrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:22px;
+}
+
+.heart-burst{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background: linear-gradient(90deg, rgba(255,63,164,0.12), rgba(59,13,90,0.12));
+  color:var(--neon-pink);
+  font-size:20px;
+  box-shadow: 0 8px 30px rgba(255,63,164,0.08);
+}
+
+.modal-body{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+}
+
+.reason-text{
+  font-size:16px;
+  line-height:1.45;
+  color:#fff;
+  margin:0;
+}
+
+/* modal footer actions */
+.modal-footer{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  align-items:center;
+}
+
+/* slightly larger buttons inside modal */
+.btn-primary-sm{
+  padding:10px 14px;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--neon-pink), #ff74bb);
+  border:none;
+  color:#0b0212;
+  font-weight:700;
+}
+
+/* quick fade for overlay when user closes */
